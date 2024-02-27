@@ -40,6 +40,7 @@ class Edit extends Component
         $this->alert('success', 'Account updated sucessfully');
     }
 
+
     public function render()
     {
         return view('livewire.accounts.edit');
