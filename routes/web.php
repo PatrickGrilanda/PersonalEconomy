@@ -5,6 +5,7 @@ use App\Livewire\Accounts\Create;
 use App\Livewire\Accounts\Edit;
 use App\Livewire\Accounts\Show;
 use App\Livewire\Categories;
+use App\Livewire\Categories\Create as CategoriesCreate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,7 @@ Route::prefix('configurations')->group(function () {
 
     Route::prefix('/categories')->group(function () {
         Route::get('/', Categories::class)->name('categories');
+        Route::get('/create', CategoriesCreate::class)->name('categories.create');
     });
 })->middleware(['auth']);
 

@@ -8,4 +8,8 @@
         @apply border border-slate-200 rounded-lg placeholder:text-gray-500 focus:border-blue-300;
     }
 
+    .form-select {
+        @apply border border-slate-200 rounded-lg placeholder:text-gray-500 focus:border-blue-300;
+    }
+
 }

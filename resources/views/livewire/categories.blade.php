@@ -3,7 +3,7 @@
         <div class="p-7 rounded-lg w-full h-fit flex flex-col gap-4">
             <div class="flex justify-between">
                 <h1 class="text-xl font-bold">{{ __('Categories') }}</h1>
-                <x-nav-link :href="route('accounts.create')" wire:navigate
+                <x-nav-link :href="route('categories.create')" wire:navigate
                     class="px-4 py-1 bg-blue-500 rounded-lg hover:bg-blue-600 text-white border-none hover:text-white duration-200 inline-flex items-center gap-2">
                     <span class="w-5 h-5 flex items-center justify-center border border-white rounded-full">
                         <x-icons.plus class="w-3 h-3" />
@@ -50,7 +50,7 @@
                     {{ __('Nothin to see here until now...') }}</p>
             @endif
             <div class="my-2">
-                {{ $categories->links() }}
+                {{ $categories->links('livewire.layout.pagination') }}
             </div>
         </div>
     </x-layouts.configurations>

@@ -26,7 +26,6 @@ class Categories extends Component
 
     public function render()
     {
-
         $query = Category::where('user_id', auth()->user()->id);
 
         $query = $this->applySearch($query);
