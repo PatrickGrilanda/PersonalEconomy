@@ -11,27 +11,32 @@
                     <span>Create New</span>
                 </x-nav-link>
             </div>
-            <ul class="list-none flex flex-col gap-2">
-                @foreach ($accounts as $account)
-                    <li wire:key="{{ $account->id }}"
-                        class="p-2 w-full border rounded-lg border-gray-300 group hover:bg-slate-100 duration-200 cursor-pointer">
-                        <a href="{{ route('accounts.show', ['account' => $account->id]) }}">
-                            <div class="inline-flex items-center px-2 justify-between w-full">
-                                <div class="inline-flex items-center gap-4">
-                                    <div
-                                        class="w-12 h-12 bg-slate-200 text-gray-700 rounded-full flex justify-center items-center">
-                                        <x-icons.wallet class="w-8 h-8" />
+            @if ($accounts->count() > 0)
+                <ul class="list-none flex flex-col gap-2">
+                    @foreach ($accounts as $account)
+                        <li wire:key="{{ $account->id }}"
+                            class="p-2 w-full border rounded-lg border-gray-300 group hover:bg-slate-100 duration-200 cursor-pointer">
+                            <a href="{{ route('accounts.show', ['account' => $account->id]) }}">
+                                <div class="inline-flex items-center px-2 justify-between w-full">
+                                    <div class="inline-flex items-center gap-4">
+                                        <div
+                                            class="w-12 h-12 bg-slate-200 text-gray-700 rounded-full flex justify-center items-center">
+                                            <x-icons.wallet class="w-8 h-8" />
+                                        </div>
+                                        <span>{{ $account->name }}</span>
                                     </div>
-                                    <span>{{ $account->name }}</span>
+                                    <span class="group-hover:block hidden">
+                                        <x-icons.chevron-left class="h-6 w-6" />
+                                    </span>
                                 </div>
-                                <span class="group-hover:block hidden">
-                                    <x-icons.chevron-left class="h-6 w-6" />
-                                </span>
-                            </div>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+                <p class="text-gray-500 p-2 border border-slate-200 text-center rounded-lg">
+                    {{ __('Nothin to see here until now...') }}</p>
+            @endif
             <div class="my-2">
                 {{ $accounts->links() }}
             </div>

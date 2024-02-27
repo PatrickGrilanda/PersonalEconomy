@@ -2,6 +2,7 @@
 
 use App\Livewire\Accounts;
 use App\Livewire\Accounts\Create;
+use App\Livewire\Accounts\Edit;
 use App\Livewire\Accounts\Show;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::prefix('configurations')->group(function () {
         Route::get('/', Accounts::class)->name('accounts');
         Route::get('/create', Create::class)->name('accounts.create');
         Route::get('/{account}', Show::class)->name('accounts.show')->middleware('can:view,account');
+        Route::get('/{account}/edit', Edit::class)->name('accounts.edit')->middleware('can:update,account');
     });
 })->middleware(['auth']);
 
