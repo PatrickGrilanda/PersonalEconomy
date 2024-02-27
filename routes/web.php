@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\Accounts;
+use App\Livewire\Accounts\Create;
+use App\Livewire\Accounts\Show;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,4 +26,12 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::prefix('configurations')->group(function () {
+    Route::prefix('/accounts')->group(function () {
+        Route::get('/', Accounts::class)->name('accounts');
+        Route::get('/create', Create::class)->name('accounts.create');
+        Route::get('/{account}', Show::class)->name('accounts.show')->middleware('can:view,account');
+    });
+})->middleware(['auth']);
+
+require __DIR__ . '/auth.php';
