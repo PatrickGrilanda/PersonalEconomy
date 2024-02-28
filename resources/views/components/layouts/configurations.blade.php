@@ -10,7 +10,7 @@
                     <x-nav-link class="w-full p-2 md:text-lg" :href="route('accounts')" wire:navigate :active="request()->routeIs('configurations*', 'accounts*')">
                         Accounts
                     </x-nav-link>
-                    <x-nav-link class="w-full p-2 md:text-lg" wire:navigate :active="request()->routeIs('configurations*', 'credit-cards*')">
+                    <x-nav-link class="w-full p-2 md:text-lg" wire:navigate :href="route('credit-cards')" :active="request()->routeIs('configurations*', 'credit-cards*')">
                         Credit Cards
                     </x-nav-link>
                 </div>

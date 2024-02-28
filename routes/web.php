@@ -6,6 +6,9 @@ use App\Livewire\Accounts\Edit;
 use App\Livewire\Accounts\Show;
 use App\Livewire\Categories;
 use App\Livewire\Categories\Create as CategoriesCreate;
+use App\Livewire\Categories\Show as CategoriesShow;
+use App\Livewire\CreditCards;
+use App\Livewire\CreditCards\Create as CreditCardsCreate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +43,12 @@ Route::prefix('configurations')->group(function () {
     Route::prefix('/categories')->group(function () {
         Route::get('/', Categories::class)->name('categories');
         Route::get('/create', CategoriesCreate::class)->name('categories.create');
+        Route::get('/{category}', CategoriesShow::class)->name('categories.show');
+    });
+
+    Route::prefix('/credit-cards')->group(function () {
+        Route::get('/', CreditCards::class)->name('credit-cards');
+        Route::get('/create', CreditCardsCreate::class)->name('credit-cards.create');
     });
 })->middleware(['auth']);
 
