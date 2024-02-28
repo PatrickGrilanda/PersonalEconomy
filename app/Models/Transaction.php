@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Enum\Category\CategoryType;
+use App\Enum\Transaction\TransactionStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-class Category extends Model
+class Transaction extends Model
 {
     use HasFactory;
 
@@ -19,7 +19,7 @@ class Category extends Model
     ];
 
     protected $casts = [
-        'type' => CategoryType::class
+        'status' => TransactionStatus::class
     ];
 
     protected static function boot()
@@ -33,8 +33,18 @@ class Category extends Model
         });
     }
 
-    public function transactions()
+    public function category()
     {
-        return $this->hasMany(Transaction::class);
+        return $this->belongsTo(Category::class);
+    }
+
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+    }
+
+    public function credit_card()
+    {
+        return $this->belongsTo(CreditCard::class);
     }
 }

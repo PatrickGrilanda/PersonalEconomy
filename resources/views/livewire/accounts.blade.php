@@ -26,7 +26,7 @@
                                         <span>{{ $account->name }}</span>
                                     </div>
                                     <span class="group-hover:block hidden">
-                                        <x-icons.chevron-left class="h-6 w-6" />
+                                        <x-icons.chevron-right class="h-6 w-6" />
                                     </span>
                                 </div>
                             </a>

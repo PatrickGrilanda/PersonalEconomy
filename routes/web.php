@@ -9,6 +9,7 @@ use App\Livewire\Categories\Create as CategoriesCreate;
 use App\Livewire\Categories\Show as CategoriesShow;
 use App\Livewire\CreditCards;
 use App\Livewire\CreditCards\Create as CreditCardsCreate;
+use App\Livewire\Transactions;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +51,10 @@ Route::prefix('configurations')->group(function () {
         Route::get('/', CreditCards::class)->name('credit-cards');
         Route::get('/create', CreditCardsCreate::class)->name('credit-cards.create');
     });
-})->middleware(['auth']);
+})->middleware(['auth', 'verified']);
+
+Route::prefix('transactions')->group(function () {
+    Route::get('/', Transactions::class)->name('transactions');
+})->middleware(['auth', 'verified']);
 
 require __DIR__ . '/auth.php';

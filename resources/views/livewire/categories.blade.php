@@ -11,19 +11,19 @@
                     <span>Create New</span>
                 </x-nav-link>
             </div>
-            @if ($categories->count() > 0)
-                <div class="flex justify-center my-4">
-                    <div class="p-2 bg-slate-200 rounded-full inline-flex gap-2">
-                        <button @class([
-                            'rounded-full  px-4 py-2 duration-200',
-                            'bg-white text-gray-700 shadow-lg' => $type == 'incomes',
-                        ]) wire:click="setType('incomes')">Incomes</button>
-                        <button @class([
-                            'rounded-full  px-4 py-2 duration-200',
-                            'bg-white text-gray-700 shadow-lg' => $type == 'expenses',
-                        ]) wire:click="setType('expenses')">Expenses</button>
-                    </div>
+            <div class="flex justify-center my-4">
+                <div class="p-2 bg-slate-200 rounded-full inline-flex gap-2">
+                    <button @class([
+                        'rounded-full  px-4 py-2 duration-200',
+                        'bg-white text-gray-700 shadow-lg' => $type == 'incomes',
+                    ]) wire:click="setType('incomes')">Incomes</button>
+                    <button @class([
+                        'rounded-full  px-4 py-2 duration-200',
+                        'bg-white text-gray-700 shadow-lg' => $type == 'expenses',
+                    ]) wire:click="setType('expenses')">Expenses</button>
                 </div>
+            </div>
+            @if ($categories->count() > 0)
                 <ul class="list-none flex flex-col gap-2">
                     @foreach ($categories as $category)
                         <li wire:key="{{ $category->id }}"
@@ -38,7 +38,7 @@
                                         <span>{{ $category->name }}</span>
                                     </div>
                                     <span class="group-hover:block hidden">
-                                        <x-icons.chevron-left class="h-6 w-6" />
+                                        <x-icons.chevron-right class="h-6 w-6" />
                                     </span>
                                 </div>
                             </a>
