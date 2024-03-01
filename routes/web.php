@@ -9,6 +9,7 @@ use App\Livewire\Categories\Create as CategoriesCreate;
 use App\Livewire\Categories\Show as CategoriesShow;
 use App\Livewire\CreditCards;
 use App\Livewire\CreditCards\Create as CreditCardsCreate;
+use App\Livewire\Dashboard;
 use App\Livewire\Transactions;
 use Illuminate\Support\Facades\Route;
 
@@ -25,9 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::get('/dashboard', Dashboard::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
