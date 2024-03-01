@@ -11,8 +11,8 @@ enum TransactionStatus: string
     public function color()
     {
         return match ($this) {
-            static::WAITING_PAYMENT => 'amber',
-            static::PAID => 'green',
+            static::WAITING_PAYMENT => 'gray',
+            static::PAID => 'blue',
             static::RECEIVED => 'green'
         };
     }
