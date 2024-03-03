@@ -1,8 +1,8 @@
-@props(['titleSize' => 'sm', 'title' => ''])
+@props(['titleSize' => 'sm', 'title' => '', 'titleStyle' => ''])
 
 <div class="bg-white w-full rounded-2xl shadow p-4 flex flex-col gap-4 h-fit">
     @if (isset($title))
-        <div class="font-semibold text-{{ $titleSize }}">
+        <div class="font-semibold text-{{ $titleSize }} {{ $titleStyle }}">
             {{ $title }}
         </div>
     @endif

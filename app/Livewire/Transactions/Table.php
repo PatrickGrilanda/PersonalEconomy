@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Transactions;
 
+use App\Enum\Transaction\TransactionStatus;
 use App\Livewire\Transactions;
 use App\Models\Category;
 use App\Models\Transaction;
@@ -34,10 +35,12 @@ class Table extends Component
 
     public function confirmPayment(Transaction $transaction)
     {
-        $transaction->status = $transaction->category->type == 'incomes' ? 'received' : 'paid';
-        $transaction->save();
-
-        $this->alert('success', 'Transaction moved to paid');
+        $transaction->status = $transaction->category->type->value == 'incomes' ? TransactionStatus::RECEIVED->value : TransactionStatus::PAID->value;
+        if ($transaction->save()) {
+            $this->alert('success', __('messages.transaction_paid_successfully'));
+        } else {
+            $this->alert('error', __('messages.transaction_paid_fail'));
+        }
     }
 
     public function checkPaymentMultiple()
@@ -51,10 +54,12 @@ class Table extends Component
 
     public function returnToWaitingPayment(Transaction $transaction)
     {
-        $transaction->status = 'waiting payment';
-        $transaction->save();
-
-        $this->alert('success', 'Transaction returned to waiting for payment');
+        $transaction->status = TransactionStatus::WAITING_PAYMENT->value;
+        if ($transaction->save()) {
+            $this->alert('success', __('messages.transaction_returned_successfully'));
+        } else {
+            $this->alert('error', __('messages.transaction_returned_fail'));
+        }
     }
 
     public function returnToWaitingPaymentMultiple()

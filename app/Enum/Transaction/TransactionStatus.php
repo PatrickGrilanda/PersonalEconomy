@@ -13,16 +13,16 @@ enum TransactionStatus: string
         return match ($this) {
             static::WAITING_PAYMENT => 'gray',
             static::PAID => 'blue',
-            static::RECEIVED => 'green'
+            static::RECEIVED => 'blue'
         };
     }
 
     public function label()
     {
         return match ($this) {
-            static::WAITING_PAYMENT => 'Waiting Payment',
-            static::PAID => 'Paid',
-            static::RECEIVED => 'Received'
+            static::WAITING_PAYMENT => __('status.waiting_payment'),
+            static::PAID => __('status.paid'),
+            static::RECEIVED => __('status.received')
         };
     }
 

@@ -47,17 +47,17 @@
             <div class="inline-flex items-center gap-4 w-full" x-show="$wire.selectedTransactionIds.length > 0" x-cloak>
                 <div>
                     <span x-text="$wire.selectedTransactionIds.length">
-                    </span> selected
+                    </span> {{ __('actions.selected') }}
                 </div>
                 <button wire:click="checkPaymentMultiple"
                     class="border rounded-xl flex gap-2 justify-center items-center text-white bg-blue-500 text-xs p-2">
                     <x-icons.like class="w-4 h-4" />
-                    <span>Check Payment</span>
+                    <span>{{ __('actions.check_payment') }}</span>
                 </button>
                 <button wire:click="returnToWaitingPaymentMultiple"
                     class="border rounded-xl flex gap-2 justify-center items-center p-2 text-xs">
                     <x-icons.arrow-turn-left class="w-4 h-4" />
-                    <span>Return</span>
+                    <span>{{ __('actions.return') }}</span>
                 </button>
             </div>
         </div>
@@ -150,13 +150,13 @@
                                     <button wire:click="returnToWaitingPayment('{{ $transaction->id }}')"
                                         class="p-2 rounded-full inline-flex gap-2 text-xs items-center border">
                                         <x-icons.arrow-turn-left class="w-4 h-4" />
-                                        <span>Return</span>
+                                        <span> {{ __('actions.return') }}</span>
                                     </button>
                                 @else
                                     <button wire:click="confirmPayment('{{ $transaction->id }}')"
                                         class="p-2 rounded-full inline-flex gap-2 text-xs items-center border bg-blue-400 hover:bg-blue-500 duration-200 text-white">
                                         <x-icons.like class="w-4 h-4" />
-                                        <span>Check Payment</span>
+                                        <span> {{ __('actions.check_payment') }}</span>
                                     </button>
                                 @endif
                             </div>

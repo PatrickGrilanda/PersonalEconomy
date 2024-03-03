@@ -5,13 +5,13 @@
             <div class="flex justify-center">
                 <div class="list-none inline-flex w-full lg:flex lg:flex-col gap-2 border-b border-slate-200">
                     <x-nav-link class="w-full p-2 md:text-lg" :href="route('categories')" wire:navigate :active="request()->routeIs('configurations*', 'categories*')">
-                        Categories
+                        {{ __('routes.categories') }}
                     </x-nav-link>
                     <x-nav-link class="w-full p-2 md:text-lg" :href="route('accounts')" wire:navigate :active="request()->routeIs('configurations*', 'accounts*')">
-                        Accounts
+                        {{ __('routes.accounts') }}
                     </x-nav-link>
                     <x-nav-link class="w-full p-2 md:text-lg" wire:navigate :href="route('credit-cards')" :active="request()->routeIs('configurations*', 'credit-cards*')">
-                        Credit Cards
+                        {{ __('routes.credit_cards') }}
                     </x-nav-link>
                 </div>
             </div>
