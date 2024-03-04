@@ -9,14 +9,11 @@
                 <div class="w-full p-4 bg-white shadow rounded-2xl">
                     <h1>{{ __('messages.your_accounts') }}</h1>
                 </div>
-                <div class="w-full p-4 bg-white shadow rounded-2xl">
-                    <h1>{{ __('messages.credit_cards') }}</h1>
-                    <select class="w-full form-input" wire:model.live="credit_card_id">
-                        @foreach ($credit_cards as $credit_card)
-                            <option wire:key="{{ $credit_card->id }}" value="{{ $credit_card->id }}">
-                                {{ $credit_card->name }} </option>
-                        @endforeach
-                    </select>
+                <div class="p-4 bg-white shadow rounded-2xl">
+                    <h1 class="font-semibold">{{ __('messages.credit_cards') }}</h1>
+                    <div class="box-content my-4 w-96">
+                        @livewire('credit-cards.swipper')
+                    </div>
                 </div>
             </div>
         </div>
