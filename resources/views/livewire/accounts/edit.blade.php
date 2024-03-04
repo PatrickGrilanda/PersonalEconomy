@@ -8,7 +8,7 @@
                     </div>
                     <span>{{ $account->name }}</span>
                 </div>
-                <x-nav-link :href="route('accounts')" wire:navigate
+                <x-nav-link :href="route('configurations.accounts')" wire:navigate
                     class="px-4 py-2 bg-white rounded-lg border border-slate-200 text-gray-800 duration-200 inline-flex items-center gap-2">
                     <span>Return</span>
                 </x-nav-link>
@@ -17,10 +17,10 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div class="col-span-2">
                         <x-input-label>Name</x-input-label>
-                        <input class="form-input w-full" wire:model.live="name" placeholder="Type name here ..."
+                        <x-text-input class="w-full" wire:model.live="name" placeholder="Type name here ..."
                             wire:model.live="name" />
                         @error('name')
-                            <p class="text-red-500">{{ $message }}</p>
+                            <x-input-error :messages="$errors->all()" />
                         @enderror
                     </div>
                     <div class="col-span-2">
@@ -28,7 +28,7 @@
                         <textarea class="form-input w-full h-24" wire:model.live="description" placeholder="Type the description here ..."
                             wire:model.live="description"></textarea>
                         @error('description')
-                            <p class="text-red-500">{{ $message }}</p>
+                            <x-input-error :messages="$errors->all()" />
                         @enderror
                     </div>
                 </div>

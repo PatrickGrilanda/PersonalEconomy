@@ -1,12 +1,12 @@
-<div class="p-4 flex items-center justify-center">
+<div class="flex items-center justify-center p-4">
     <x-layouts.configurations>
-        <div class="p-7 rounded-lg w-full h-fit flex flex-col gap-4">
+        <div class="flex flex-col w-full gap-4 rounded-lg p-7 h-fit">
             <div class="flex justify-between">
                 <h1 class="text-xl font-bold">
                     {{ __('actions.create_new') . ' ' . __('routes.credit_card') }}
                 </h1>
-                <x-nav-link :href="route('credit-cards')" wire:navigate
-                    class="px-4 py-2 bg-white rounded-lg border border-slate-200 text-gray-800 duration-200 inline-flex items-center gap-2">
+                <x-nav-link :href="route('configurations.credit-cards')" wire:navigate
+                    class="inline-flex items-center gap-2 px-4 py-2 text-gray-800 duration-200 bg-white border rounded-lg border-slate-200">
                     <span>{{ __('actions.return') }}</span>
                 </x-nav-link>
             </div>
@@ -14,40 +14,54 @@
                 <div class="grid grid-cols-2 gap-4 mb-4">
                     <div class="col-span-2">
                         <x-input-label>Name</x-input-label>
-                        <input class="form-input w-full" wire:model.live="name"
+                        <x-text-input class="w-full" wire:model.live="name"
                             placeholder="{{ __('actions.type') }} name here ..." />
                         @error('name')
-                            <p class="text-red-500">{{ $message }}</p>
+                            <x-input-error :messages="$errors->all()" />
                         @enderror
                     </div>
                     <div class="col-span-2">
                         <x-input-label>Limit</x-input-label>
-                        <input type="number" step="0.01" placeholder="{{ __('actions.type') }} the limit here"
-                            class="form-input w-full" wire:model="limit" />
+                        <x-text-input class="w-full" type="number" step="0.01"
+                            placeholder="{{ __('actions.type') }} the limit here" wire:model="limit" />
                         @error('limit')
-                            <p class="text-red-500">{{ $message }}</p>
+                            <x-input-error :messages="$errors->all()" />
                         @enderror
                     </div>
                     <div class="col-span-2">
                         <x-input-label>Invoice Closing Date</x-input-label>
-                        <input type="number" placeholder="{{ __('actions.type') }} the closing date"
-                            class="form-input w-full" wire:model="invoice_closing_date" />
+                        <x-text-input class="w-full" type="number"
+                            placeholder="{{ __('actions.type') }} the closing date" wire:model="invoice_closing_date" />
                         @error('invoice_closing_date')
-                            <p class="text-red-500">{{ $message }}</p>
+                            <x-input-error :messages="$errors->all()" />
                         @enderror
                     </div>
                     <div class="col-span-2">
                         <x-input-label>Invoice Due Date</x-input-label>
-                        <input type="number" placeholder="{{ __('actions.type') }} the Due date date"
-                            class="form-input w-full" wire:model="invoice_due_date" />
+                        <x-text-input class="w-full" type="number"
+                            placeholder="{{ __('actions.type') }} the Due date date" wire:model="invoice_due_date" />
                         @error('invoice_due_date')
-                            <p class="text-red-500">{{ $message }}</p>
+                            <x-input-error :messages="$errors->all()" />
+                        @enderror
+                    </div>
+                    <div class="col-span-2">
+                        <x-input-label>Icon</x-input-label>
+                        <x-text-input class="w-full" type="file" wire:model="icon" />
+                        @error('icon')
+                            <x-input-error :messages="$errors->all()" />
+                        @enderror
+                    </div>
+                    <div class="col-span-2">
+                        <x-input-label>Cover image</x-input-label>
+                        <x-text-input class="w-full" type="file" wire:model="cover_image" />
+                        @error('cover_image')
+                            <x-input-error :messages="$errors->all()" />
                         @enderror
                     </div>
                 </div>
                 <div class="flex justify-end">
                     <button type="submit"
-                        class="px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg  text-white duration-200 inline-flex items-center gap-2">
+                        class="inline-flex items-center gap-2 px-4 py-2 text-white duration-200 bg-blue-500 rounded-lg hover:bg-blue-600">
                         {{ __('actions.save') }}
                     </button>
                 </div>

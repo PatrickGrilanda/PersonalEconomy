@@ -56,7 +56,7 @@ class Create extends Component
                 'credit_card_id' => $this->credit_card_id,
                 'date' => $installmentDate->format('Y-m-d'),
                 'total_installments' => $this->total_installments,
-                'value' => $amount,
+                'value' => $amount * -1,
                 'current_installment' => $i + 1,
                 'category_id' => $this->category_id,
                 'period_type' => $this->period_type,

@@ -32,7 +32,7 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::prefix('configurations')->group(function () {
+Route::prefix('configurations')->name('configurations.')->group(function () {
     Route::prefix('/accounts')->group(function () {
         Route::get('/', Accounts::class)->name('accounts');
         Route::get('/create', Create::class)->name('accounts.create');

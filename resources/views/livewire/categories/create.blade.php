@@ -3,7 +3,7 @@
         <div class="p-7 rounded-lg w-full h-fit flex flex-col gap-4">
             <div class="flex justify-between">
                 <h1 class="text-xl font-bold">{{ __('Create New Category') }}</h1>
-                <x-nav-link :href="route('categories')" wire:navigate
+                <x-nav-link :href="route('configurations.categories')" wire:navigate
                     class="px-4 py-2 bg-white rounded-lg border border-slate-200 text-gray-800 duration-200 inline-flex items-center gap-2">
                     <span> {{ __('actions.return') }}</span>
                 </x-nav-link>
@@ -12,9 +12,9 @@
                 <div class="grid grid-cols-2 gap-4 mb-4">
                     <div class="col-span-2">
                         <x-input-label>Name</x-input-label>
-                        <input class="form-input w-full" wire:model.live="name" placeholder="Type name here ..." />
+                        <x-text-input class="w-full" wire:model.live="name" placeholder="Type name here ..." />
                         @error('name')
-                            <p class="text-red-500">{{ $message }}</p>
+                            <x-input-error :messages="$errors->all()" />
                         @enderror
                     </div>
                     <div class="col-span-2">
@@ -25,7 +25,7 @@
                         </select>
 
                         @error('type')
-                            <p class="text-red-500">{{ $message }}</p>
+                            <x-input-error :messages="$errors->all()" />
                         @enderror
                     </div>
                 </div>

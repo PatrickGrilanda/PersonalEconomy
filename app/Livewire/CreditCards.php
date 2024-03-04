@@ -18,7 +18,7 @@ class CreditCards extends Component
         $query = CreditCard::where('user_id', auth()->user()->id);
 
         return view('livewire.credit-cards', [
-            'credit_cards' => $query->paginate(10)
+            'credit_cards' => $query->paginate(5)
         ]);
     }
 }

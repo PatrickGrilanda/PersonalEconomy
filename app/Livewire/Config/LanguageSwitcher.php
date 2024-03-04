@@ -14,7 +14,7 @@ class LanguageSwitcher extends Component
         Session::put('locale', $language);
         App::setLocale($language);
         //$this->emit('localeChanged'); // Opcional: Se você quiser reagir a esta mudança em outros componentes Livewire.
-        $this->redirect('/dashboard', navigate: true);
+        $this->redirectIntended('/dashboard', navigate: true);
     }
 
     public function render()

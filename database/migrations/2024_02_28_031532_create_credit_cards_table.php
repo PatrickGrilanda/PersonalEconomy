@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->float('limit');
             $table->integer('invoice_closing_date');
+            $table->string('icon')->nullable();
+            $table->string('cover_image')->nullable();
             $table->integer('invoice_due_date');
             $table->uuid('user_id');
             $table->timestamps();

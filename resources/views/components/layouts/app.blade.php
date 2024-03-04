@@ -12,19 +12,19 @@
 </head>
 
 <body>
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 ">
+    <div class="box-border min-h-screen min-2-screen bg-slate-100 dark:bg-gray-900 ">
         <livewire:layout.navigation />
         <!-- Page Heading -->
         @if (isset($header))
-            <header class="bg-white dark:bg-gray-800 shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
+            <header class="bg-white shadow dark:bg-gray-800">
+                <div class="px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                    <h1 class="text-sm font-semibold">{{ $header }}</h1>
                 </div>
             </header>
         @endif
 
         <!-- Page Content -->
-        <main class="py-4">
+        <main class="w-full h-full px-2 py-4 overflow-auto">
             {{ $slot }}
         </main>
     </div>

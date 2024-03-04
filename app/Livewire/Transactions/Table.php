@@ -3,16 +3,13 @@
 namespace App\Livewire\Transactions;
 
 use App\Enum\Transaction\TransactionStatus;
-use App\Livewire\Transactions;
 use App\Models\Category;
 use App\Models\Transaction;
 use Carbon\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Livewire\Attributes\Lazy;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-#[Lazy()]
 class Table extends Component
 {
     use LivewireAlert;
@@ -26,6 +23,7 @@ class Table extends Component
     public $type = '';
 
     public $selectedTransactionIds = [];
+    public $transactionIdsOnPage = [];
 
     public function mount()
     {
@@ -50,6 +48,8 @@ class Table extends Component
         foreach ($transactions as $transaction) {
             $this->confirmPayment($transaction);
         }
+
+        $this->reset('selectedTransactionIds');
     }
 
     public function returnToWaitingPayment(Transaction $transaction)
@@ -69,6 +69,8 @@ class Table extends Component
         foreach ($transactions as $transaction) {
             $this->returnToWaitingPayment($transaction);
         }
+
+        $this->reset('selectedTransactionIds');
     }
 
     public function updatedCategoryId()
@@ -125,8 +127,12 @@ class Table extends Component
 
         $query = $this->applyTypeFilter($query);
 
+        $query = $query->paginate(10);
+
+        $this->transactionIdsOnPage = $query->map(fn ($transaction) => (string) $transaction->id)->toArray();
+
         return view('livewire.transactions.table', [
-            'transactions' => $query->paginate(10),
+            'transactions' => $query,
             'categories' => Category::all()
         ]);
     }
@@ -135,7 +141,7 @@ class Table extends Component
     {
         return <<<'HTML'
         <div>
-        Loading table ...
+        {{ __('actions.loading_table') }}...
         </div>
         HTML;
     }

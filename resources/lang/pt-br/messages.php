@@ -10,5 +10,8 @@ return [
     'transaction_returned_successfully' => 'Lançamento retornado com sucesso',
     'transaction_returned_fail' => 'Falha ao retornar o lançamento',
     'transaction_paid_successfully' => 'Lançamento pago com sucesso',
-    'transaction_paid_fail' => 'Falha ao confirmar o pagamento do lançamento'
+    'transaction_paid_fail' => 'Falha ao confirmar o pagamento do lançamento',
+    'nothing_to_show' => 'Nada para apresentar até o momento',
+    'your_accounts' => 'Suas Contas',
+    'credit_cards' => 'Seus cartões de crédito'
 ];

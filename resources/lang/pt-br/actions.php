@@ -14,5 +14,8 @@ return [
     'save' => 'Salvar',
     'type' => 'Digite',
     'change_language' => 'Mudar idioma',
-    'selected' => 'Selecionados'
+    'selected' => 'Selecionados',
+    'logout' => 'Sair',
+    'loading' => 'Carregando tabela',
+    'filter' => 'Filtrar'
 ];

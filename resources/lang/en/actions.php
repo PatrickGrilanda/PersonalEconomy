@@ -14,5 +14,8 @@ return [
     'save' => 'Save',
     'type' => 'Type',
     'change_language' => 'Change language',
-    'selected' => 'Selected'
+    'selected' => 'Selected',
+    'logout' => 'Log Out',
+    'loading_table' => 'Loading table',
+    'filter' => 'Filter'
 ];

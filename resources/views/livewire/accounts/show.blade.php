@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="inline-flex gap-2 items-center">
-                    <x-nav-link :href="route('accounts.edit', ['account' => $account->id])" wire:navigate
+                    <x-nav-link :href="route('configurations.accounts.edit', ['account' => $account->id])" wire:navigate
                         class="px-4 py-2 bg-slate-200 hover:bg-gray-700 hover:text-white rounded-lg border-none text-gray-800 duration-200 inline-flex items-center gap-2">
                         <span> {{ __('actions.edit') }}</span>
                     </x-nav-link>
@@ -20,7 +20,7 @@
                         class="px-4 py-2 bg-red-500 rounded-lg border-none text-white hover:text-white hover:bg-red-600 duration-200 inline-flex items-center gap-2 cursor-pointer">
                         <span> {{ __('actions.delete') }}</span>
                     </x-nav-link>
-                    <x-nav-link :href="route('accounts')" wire:navigate
+                    <x-nav-link :href="route('configurations.accounts')" wire:navigate
                         class="px-4 py-2 rounded-lg border-none text-gray-800 hover:bg-slate-200 bg-slate-100 duration-200 inline-flex items-center gap-2">
                         <span> {{ __('actions.return') }}</span>
                     </x-nav-link>

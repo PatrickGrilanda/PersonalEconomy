@@ -33,7 +33,7 @@
                     @endforeach
                 </select>
                 @error('account_id')
-                    <p class="text-red-500">{{ $message }}</p>
+                    <x-input-error :messages="$errors->all()" />
                 @enderror
             </div>
             <div class="">
@@ -47,28 +47,28 @@
                     @endforeach
                 </select>
                 @error('credit_card_id')
-                    <p class="text-red-500">{{ $message }}</p>
+                    <x-input-error :messages="$errors->all()" />
                 @enderror
             </div>
             <div class="">
                 <label>Date</label>
                 <input wire:model.live="date" type="date" />
                 @error('date')
-                    <p class="text-red-500">{{ $message }}</p>
+                    <x-input-error :messages="$errors->all()" />
                 @enderror
             </div>
             <div class="">
                 <label>Total Installments</label>
                 <input wire:model.live="total_installments" />
                 @error('total_installments')
-                    <p class="text-red-500">{{ $message }}</p>
+                    <x-input-error :messages="$errors->all()" />
                 @enderror
             </div>
             <div class="">
                 <label>Total Amount</label>
                 <input wire:model.live="total_amount" />
                 @error('total_amount')
-                    <p class="text-red-500">{{ $message }}</p>
+                    <x-input-error :messages="$errors->all()" />
                 @enderror
             </div>
             <div class="">
@@ -80,7 +80,7 @@
                     <option value="repetition">Parcelado</option>
                 </select>
                 @error('period_type')
-                    <p class="text-red-500">{{ $message }}</p>
+                    <x-input-error :messages="$errors->all()" />
                 @enderror
             </div>
 

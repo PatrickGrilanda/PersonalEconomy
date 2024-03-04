@@ -20,7 +20,7 @@
                         class="px-4 py-2 bg-red-500 rounded-lg border-none text-white hover:text-white hover:bg-red-600 duration-200 inline-flex items-center gap-2 cursor-pointer">
                         <span> {{ __('actions.delete') }}</span>
                     </x-nav-link>
-                    <x-nav-link :href="route('categories')" wire:navigate
+                    <x-nav-link :href="route('configurations.categories')" wire:navigate
                         class="px-4 py-2 rounded-lg border-none text-gray-800 hover:bg-slate-200 bg-slate-100 duration-200 inline-flex items-center gap-2">
                         <span> {{ __('actions.return') }}</span>
                     </x-nav-link>

@@ -10,5 +10,8 @@ return [
     'transaction_returned_successfully' => 'Transaction returned successfully',
     'transaction_returned_fail' => 'Failed to return transaction',
     'transaction_paid_successfully' => 'Transaction paid successfully',
-    'transaction_paid_fail' => 'Failed to confirm transaction payment'
+    'transaction_paid_fail' => 'Failed to confirm transaction payment',
+    'nothing_to_show' => 'Nothing to show until now',
+    'your_accounts' => 'Your accounts',
+    'credit_cards' => 'Your credit cards'
 ];

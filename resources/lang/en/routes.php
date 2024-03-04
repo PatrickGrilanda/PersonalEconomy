@@ -6,5 +6,7 @@ return [
     'configurations' => 'Configurations',
     'categories' => 'Categories',
     'accounts' => 'Accounts',
-    'credit_cards' => 'Credit Cards'
+    'credit_cards' => 'Credit Cards',
+    'credit_card' => 'Credit Card',
+    'profile' => 'Profile'
 ];
